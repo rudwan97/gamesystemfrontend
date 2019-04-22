@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSaveCharacter()" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput type="text" formControlName="name" placeholder="Character name">
+      <mat-error *ngIf="form.get('name').invalid">Please enter the character name!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" formControlName="game" placeholder="Game">
+        <mat-error *ngIf="form.get('game').invalid">Please enter game name!</mat-error>
+      </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Save Character</button>
+  </form>
+</mat-card>

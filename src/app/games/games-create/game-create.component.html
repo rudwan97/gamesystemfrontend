@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form [formGroup]="form" (submit)="onSaveGame()" *ngIf="!isLoading">
+      <mat-form-field>
+        <input matInput type="text" formControlName="title" placeholder="Game title">
+        <mat-error *ngIf="form.get('title').invalid">Please enter a Game name!</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput type="text" formControlName="genre" placeholder="Genre">
+          <mat-error *ngIf="form.get('genre').invalid">Please enter genre of the game!</mat-error>
+        </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" rows= "1" formControlName="developer" placeholder="Developer name">
+        <mat-error *ngIf="form.get('developer').invalid">Please enter developer!</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">Save Game</button>
+    </form>
+  </mat-card>

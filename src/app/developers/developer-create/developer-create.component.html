@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form [formGroup]="form" (submit)="onSaveDeveloper()" *ngIf="!isLoading">
+      <mat-form-field>
+        <input matInput type="text" formControlName="name" placeholder="Developer name">
+        <mat-error *ngIf="form.get('name').invalid">Please enter a Developer name!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput type="text" rows="1" formControlName="city" placeholder="City">
+          <mat-error *ngIf="form.get('city').invalid">Please enter city name!</mat-error>
+        </mat-form-field>
+      <mat-form-field>
+        <textarea matInput rows="4" formControlName="description" placeholder="Developer description"></textarea>
+        <mat-error *ngIf="form.get('description').invalid">Please enter the description of a developer!</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="accent" type="submit">Save developer</button>
+    </form>
+  </mat-card>
